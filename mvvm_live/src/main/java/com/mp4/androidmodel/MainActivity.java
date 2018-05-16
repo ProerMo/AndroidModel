@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         getData();
     }
-    //TODO 测试通过，能拿到数据！！05-16 20:43
+    //TODO 测试通过，能拿到数据！！05-16 20:43 此处代码待删除！
     private void getData(){
         new RemotePicReponsitory().getPicFormNet(4)
                 .observe(this, new Observer<Response<List<Picture>>>() {
