@@ -3,6 +3,10 @@ package com.mp4.androidmodel;
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
 import android.support.test.runner.AndroidJUnit4;
+import android.util.Log;
+
+import com.mp4.androidmodel.data.source.remote.PictureNetService;
+import com.mp4.androidmodel.data.source.remote.RemotePicReponsitory;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -18,9 +22,10 @@ import static org.junit.Assert.*;
 public class ExampleInstrumentedTest {
     @Test
     public void useAppContext() throws Exception {
-        // Context of the app under test.
-        Context appContext = InstrumentationRegistry.getTargetContext();
+        RemotePicReponsitory reponsitory = new RemotePicReponsitory();
+        Log.d("mmmm", "main: "+reponsitory.getRetrofit().create(PictureNetService.class));
+        Log.d("mmmm", "main1: "+reponsitory.getRetrofit().create(PictureNetService.class));
+        Log.d("mmmm", "main2: "+reponsitory.getRetrofit().create(PictureNetService.class));
 
-        assertEquals("com.mp4.androidmodel", appContext.getPackageName());
     }
 }

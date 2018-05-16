@@ -32,6 +32,7 @@ public final class Picture {
     private String url;
     private String copyright;
     private String copyrightlink;
+    private String remark;
     @Ignore//忽略此属性，不作为表的字段名
     private String hsh;
 
@@ -73,5 +74,13 @@ public final class Picture {
 
     public void setHsh(String hsh) {
         this.hsh = hsh;
+    }
+
+    public String getRemark() {
+        return remark;
+    }
+
+    public void setRemark(String remark) {
+        this.remark = remark;
     }
 }
