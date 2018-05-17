@@ -35,6 +35,8 @@ public final class Picture {
     private String remark;
     @Ignore//忽略此属性，不作为表的字段名
     private String hsh;
+    @Ignore
+    private boolean checked = false;
 
     public int getId() {
         return id;
@@ -82,5 +84,13 @@ public final class Picture {
 
     public void setRemark(String remark) {
         this.remark = remark;
+    }
+
+    public boolean isChecked() {
+        return checked;
+    }
+
+    public void setChecked(boolean checked) {
+        this.checked = checked;
     }
 }

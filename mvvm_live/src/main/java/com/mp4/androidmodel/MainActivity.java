@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
         getData();
     }
     //TODO 测试通过，能拿到数据！！05-16 20:43 此处代码待删除！
-    private void getData(){
+    public void getData(){
         new RemotePicReponsitory().getPicFormNet(4)
                 .observe(this, new Observer<Response<List<Picture>>>() {
                     @Override
