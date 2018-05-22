@@ -1,12 +1,18 @@
 package com.mp4.androidmodel.viewmodel;
 
+import android.app.Activity;
 import android.app.Application;
 import android.arch.core.util.Function;
 import android.arch.lifecycle.AndroidViewModel;
 import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.MutableLiveData;
+import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.Transformations;
+import android.databinding.ObservableArrayList;
+import android.databinding.ObservableList;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+import android.support.v7.app.AppCompatActivity;
 
 import com.mp4.androidmodel.data.entity.Picture;
 import com.mp4.androidmodel.data.entity.Response;
@@ -22,6 +28,7 @@ import java.util.List;
 public class MainViewModel extends AndroidViewModel {
     private RemotePicRepository mRemotePicRepository;
     private LocalPicRepository mLocalPicRepository;
+    ObservableList<Picture> mPictures = new ObservableArrayList<>();
 
     public MainViewModel(@NonNull Application application, LocalPicRepository localDataSources, RemotePicRepository remoteDataSource) {
         super(application);
@@ -29,15 +36,14 @@ public class MainViewModel extends AndroidViewModel {
         mRemotePicRepository = remoteDataSource;
     }
 
-    //TODO ?????? liveData的转换还不了解
-    public LiveData<List<Picture>> getListFromRemote(int count) {
-        return Transformations.switchMap(mRemotePicRepository.getPicFormNet(count), new Function<Response<List<Picture>>, LiveData<List<Picture>>>() {
+    public LiveData<Response<List<Picture>>> getListFromRemote(int count, AppCompatActivity activity) {
+        LiveData<Response<List<Picture>>> liveData = mRemotePicRepository.getPicFormNet(count);
+        liveData.observe(activity, new Observer<Response<List<Picture>>>() {
             @Override
-            public LiveData<List<Picture>> apply(Response<List<Picture>> input) {
-                MutableLiveData<List<Picture>> liveData = new MutableLiveData<>();
-                liveData.postValue(input.getData());
-                return liveData;
+            public void onChanged(@Nullable Response<List<Picture>> listResponse) {
+                mPictures.addAll(listResponse.getData());
             }
         });
+        return liveData;
     }
 }
