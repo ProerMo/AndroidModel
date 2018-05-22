@@ -47,26 +47,26 @@ public class LocalPicRepository implements PicDataSource.LocalDataSource {
     }
 
     @Override
-    public LiveData<Integer> deletePicFromDbByIds(int... id) {
-        return null;
-//        return mPictureDao.deletePictureFromDbById(id);
+    public int deletePicFromDbByIds(int... ids) {
+        int size = 0;
+        for (int i = 0; i < ids.length; i++) {
+            size += mPictureDao.deletePictureFromDbById(ids[i]);
+        }
+        return size;
     }
 
     @Override
-    public LiveData<Integer> deleteAllPicFromDb() {
-        //TODO ????
-        return null;
+    public int deleteAllPicFromDb() {
+        return mPictureDao.deleteAllPicFromDb();
     }
 
     @Override
-    public LiveData<Integer> updatePicFromDb(Picture... pictures) {
-        return null;
-//        return mPictureDao.updatePictureFromDb(pictures);
+    public int updatePicFromDb(Picture... pictures) {
+        return mPictureDao.updatePictureFromDb(pictures);
     }
 
     @Override
-    public LiveData<List<Long>> addPicToDb(Picture... pictures) {
-        return null;
-//        return mPictureDao.insertPicturesIntoDb(pictures);
+    public List<Long> addPicToDb(Picture... pictures) {
+        return mPictureDao.insertPicturesIntoDb(pictures);
     }
 }

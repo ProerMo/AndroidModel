@@ -24,11 +24,21 @@ import retrofit2.converter.gson.GsonConverterFactory;
  * Created by mopengfei on 2018-05-16.
  */
 
-public class RemotePicReponsitory implements PicDataSource.RemoteDataSource {
+public class RemotePicRepository implements PicDataSource.RemoteDataSource {
 
-    private Retrofit retrofit;
+    private static Retrofit retrofit;
+    private static volatile RemotePicRepository INSTANCE;
 
-    public RemotePicReponsitory() {
+    public static RemotePicRepository getInstance() {
+        if (INSTANCE == null) {
+            synchronized (RemotePicRepository.class) {
+                INSTANCE = new RemotePicRepository();
+            }
+        }
+        return INSTANCE;
+    }
+
+    private RemotePicRepository() {
         OkHttpClient client = new OkHttpClient.Builder()
                 .addInterceptor(new ParamInterceptor())
                 .connectTimeout(30L, TimeUnit.SECONDS)
@@ -75,9 +85,5 @@ public class RemotePicReponsitory implements PicDataSource.RemoteDataSource {
 
     public Retrofit getRetrofit() {
         return retrofit;
-    }
-
-    public static void main(String[] args) {
-
     }
 }

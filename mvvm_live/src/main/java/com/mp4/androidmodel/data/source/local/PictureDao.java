@@ -49,6 +49,14 @@ public interface PictureDao {
     int deletePicturesFromDb(Picture... pictures);
 
     /**
+     * 从数据库中删除所有{@link Picture}，返回值是删除的条数。
+     *
+     * @return
+     */
+    @Query("delete from tb_picture")
+    int deleteAllPicFromDb();
+
+    /**
      * 查询数据库中所有的{@link Picture} 对象
      *
      * @return
