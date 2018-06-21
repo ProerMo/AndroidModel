@@ -8,9 +8,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.mp4.androidmodel.R;
 import com.mp4.androidmodel.data.entity.Picture;
 import com.mp4.androidmodel.databinding.ItemPicBinding;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -25,7 +27,7 @@ public class PicListAdapter extends RecyclerView.Adapter<PicListAdapter.PicViewH
     public PicListAdapter(@Nullable List<Picture> mPictureList) {
         if (mPictureList != null) {
             this.mPictureList = mPictureList;
-        }
+        } else this.mPictureList = new ArrayList<>();
 
     }
 
@@ -33,7 +35,7 @@ public class PicListAdapter extends RecyclerView.Adapter<PicListAdapter.PicViewH
     @Override
     public PicViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         ItemPicBinding binding = ItemPicBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false);
-        binding.getRoot().setTag(BINDING_TAG, binding);
+        binding.getRoot().setTag(R.id.binding_key, binding);
         return new PicViewHolder(binding.getRoot());
     }
 
@@ -46,9 +48,7 @@ public class PicListAdapter extends RecyclerView.Adapter<PicListAdapter.PicViewH
 
     @Override
     public int getItemCount() {
-        if (mPictureList != null) {
-            return mPictureList.size();
-        } else return 0;
+        return mPictureList.size();
     }
 
     public List<Picture> getmPictureList() {
@@ -57,6 +57,7 @@ public class PicListAdapter extends RecyclerView.Adapter<PicListAdapter.PicViewH
 
     public void setmPictureList(List<Picture> mPictureList) {
         this.mPictureList = mPictureList;
+        notifyDataSetChanged();
     }
 
     public class PicViewHolder extends RecyclerView.ViewHolder {
@@ -66,7 +67,7 @@ public class PicListAdapter extends RecyclerView.Adapter<PicListAdapter.PicViewH
         }
 
         public ViewDataBinding getDataBinding() {
-            return (ViewDataBinding) itemView.getTag(BINDING_TAG);
+            return (ViewDataBinding) itemView.getTag(R.id.binding_key);
         }
     }
 }

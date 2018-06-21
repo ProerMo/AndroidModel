@@ -14,6 +14,7 @@ import java.util.concurrent.TimeUnit;
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
+import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
@@ -59,25 +60,10 @@ public class RemotePicRepository implements PicDataSource.RemoteDataSource {
                 .getPicFromNet(1, count)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Observer<Response<List<Picture>>>() {
+                .subscribe(new Consumer<Response<List<Picture>>>() {
                     @Override
-                    public void onSubscribe(Disposable d) {
-
-                    }
-
-                    @Override
-                    public void onNext(Response<List<Picture>> pictureResponse) {
-                        liveData.postValue(pictureResponse);
-                    }
-
-                    @Override
-                    public void onError(Throwable e) {
-
-                    }
-
-                    @Override
-                    public void onComplete() {
-
+                    public void accept(Response<List<Picture>> listResponse) throws Exception {
+                        liveData.postValue(listResponse);
                     }
                 });
         return liveData;

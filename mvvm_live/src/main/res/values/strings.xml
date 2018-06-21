@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">AndroidModel</string>
+    <item name="binding_key" type="id" />
 </resources>
