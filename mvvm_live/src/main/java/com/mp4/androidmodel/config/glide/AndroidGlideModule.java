@@ -10,16 +10,20 @@ import com.bumptech.glide.TransitionOptions;
 import com.bumptech.glide.annotation.GlideModule;
 import com.bumptech.glide.load.resource.bitmap.BitmapTransitionOptions;
 import com.bumptech.glide.module.AppGlideModule;
+import com.bumptech.glide.request.RequestOptions;
 
 /**
  * Created by mopengfei on 2018-06-21.
  */
-@GlideModule
+@GlideModule(glideName = "AndroidGlide")
 public class AndroidGlideModule extends AppGlideModule {
     @Override
     public void applyOptions(@NonNull Context context, @NonNull GlideBuilder builder) {
         super.applyOptions(context, builder);
 //        builder.setBitmapPool()
+        builder.setDefaultRequestOptions(new RequestOptions().circleCrop())
+        .setBitmapPool(new AppBitmapPoor());
+//        .setDefaultRequestOptions(new RequestOpti);
     }
 
     @Override

@@ -8,7 +8,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
 import com.mp4.androidmodel.R;
+import com.mp4.androidmodel.config.glide.AndroidGlide;
+import com.mp4.androidmodel.config.glide.AndroidGlideModule;
 import com.mp4.androidmodel.data.entity.Picture;
 import com.mp4.androidmodel.databinding.ItemPicBinding;
 
@@ -34,7 +37,8 @@ public class PicListAdapter extends RecyclerView.Adapter<PicListAdapter.PicViewH
     @NonNull
     @Override
     public PicViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        ItemPicBinding binding = ItemPicBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false);
+        ItemPicBinding binding = ItemPicBinding.inflate(LayoutInflater.from(parent.getContext()),
+                parent, false);
         binding.getRoot().setTag(R.id.binding_key, binding);
         return new PicViewHolder(binding.getRoot());
     }
@@ -42,8 +46,13 @@ public class PicListAdapter extends RecyclerView.Adapter<PicListAdapter.PicViewH
     @Override
     public void onBindViewHolder(@NonNull PicViewHolder holder, int position) {
         ViewDataBinding mBinding = holder.getDataBinding();
-        if (mBinding instanceof ItemPicBinding)
-            ((ItemPicBinding) mBinding).setItem(getmPictureList().get(position));
+        Picture item = getmPictureList().get(position);
+        if (mBinding instanceof ItemPicBinding) {
+            ((ItemPicBinding) mBinding).setItem(item);
+            AndroidGlide.with(mBinding.getRoot()).load(item.getFullUrl())
+                    .transform(new RoundedCorners(10))
+                    .into(((ItemPicBinding) mBinding).imgPic);
+        }
     }
 
     @Override

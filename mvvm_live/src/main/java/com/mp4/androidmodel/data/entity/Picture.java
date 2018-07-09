@@ -38,6 +38,11 @@ public final class Picture {
     @Ignore
     private boolean checked = false;
 
+    public String getFullUrl() {
+        return "https://www.bing.com/" + url;
+    }
+
+
     public int getId() {
         return id;
     }
