@@ -21,8 +21,8 @@ public class AndroidGlideModule extends AppGlideModule {
     public void applyOptions(@NonNull Context context, @NonNull GlideBuilder builder) {
         super.applyOptions(context, builder);
 //        builder.setBitmapPool()
-        builder.setDefaultRequestOptions(new RequestOptions().circleCrop())
-        .setBitmapPool(new AppBitmapPoor());
+        builder.setDefaultRequestOptions(new RequestOptions().circleCrop());
+//        .setBitmapPool(new AppBitmapPoor());
 //        .setDefaultRequestOptions(new RequestOpti);
     }
 
