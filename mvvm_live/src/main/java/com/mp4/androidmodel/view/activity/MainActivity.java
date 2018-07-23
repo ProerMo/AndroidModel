@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.GridLayoutManager;
 
 import com.mp4.androidmodel.R;
@@ -13,6 +14,7 @@ import com.mp4.androidmodel.data.entity.Picture;
 import com.mp4.androidmodel.data.entity.Response;
 import com.mp4.androidmodel.databinding.ActivityMainBinding;
 import com.mp4.androidmodel.view.adapter.PicListAdapter;
+import com.mp4.androidmodel.view.widget.GridSpaceItemDecoration;
 import com.mp4.androidmodel.viewmodel.MainViewModel;
 import com.mp4.androidmodel.viewmodel.ViewModelFactory;
 
@@ -33,12 +35,13 @@ public class MainActivity extends AppCompatActivity {
         mAdapter = new PicListAdapter(null);
         mBinding.recyclerView.setAdapter(mAdapter);
         mBinding.recyclerView.setLayoutManager(new GridLayoutManager(this, 3));
+        mBinding.recyclerView.addItemDecoration(new GridSpaceItemDecoration(10));
         getData();
     }
 
 
     public void getData() {
-        mViewModel.getListFromRemote(10, this)
+        mViewModel.getListFromRemote(100, this)
                 .observe(this, new Observer<Response<List<Picture>>>() {
                     @Override
                     public void onChanged(@Nullable Response<List<Picture>> listResponse) {

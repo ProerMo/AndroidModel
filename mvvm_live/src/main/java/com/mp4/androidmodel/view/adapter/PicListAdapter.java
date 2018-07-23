@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.bumptech.glide.load.resource.bitmap.CenterCrop;
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
 import com.mp4.androidmodel.R;
 import com.mp4.androidmodel.config.glide.AndroidGlide;
@@ -50,7 +51,7 @@ public class PicListAdapter extends RecyclerView.Adapter<PicListAdapter.PicViewH
         if (mBinding instanceof ItemPicBinding) {
             ((ItemPicBinding) mBinding).setItem(item);
             AndroidGlide.with(mBinding.getRoot()).load(item.getFullUrl())
-                    .transform(new RoundedCorners(10))
+                    .transforms(new CenterCrop(), new RoundedCorners(20))
                     .into(((ItemPicBinding) mBinding).imgPic);
         }
     }
