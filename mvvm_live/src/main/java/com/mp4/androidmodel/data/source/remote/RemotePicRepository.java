@@ -57,7 +57,7 @@ public class RemotePicRepository implements PicDataSource.RemoteDataSource {
     public LiveData<Response<List<Picture>>> getPicFormNet(int count) {
         final MutableLiveData<Response<List<Picture>>> liveData = new MutableLiveData<>();
         getRetrofit().create(PictureNetService.class)
-                .getPicFromNet(1, count)
+                .getPicFromNet(2, count)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Consumer<Response<List<Picture>>>() {

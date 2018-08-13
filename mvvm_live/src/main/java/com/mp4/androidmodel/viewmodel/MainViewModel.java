@@ -21,6 +21,14 @@ import com.mp4.androidmodel.data.source.remote.RemotePicRepository;
 
 import java.util.List;
 
+import io.reactivex.Observable;
+import io.reactivex.ObservableEmitter;
+import io.reactivex.ObservableOnSubscribe;
+import io.reactivex.ObservableSource;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.schedulers.Schedulers;
+
 /**
  * Created by mopengfei on 2018-05-21.
  */
@@ -37,13 +45,81 @@ public class MainViewModel extends AndroidViewModel {
     }
 
     public LiveData<Response<List<Picture>>> getListFromRemote(int count, AppCompatActivity activity) {
-        LiveData<Response<List<Picture>>> liveData = mRemotePicRepository.getPicFormNet(count);
-        liveData.observe(activity, new Observer<Response<List<Picture>>>() {
+        return mRemotePicRepository.getPicFormNet(count);
+    }
+
+    public MutableLiveData<List<Long>> collectPicture(final Picture... picture) {
+        final MutableLiveData<List<Long>> liveData = new MutableLiveData<>();
+        Observable.create(new ObservableOnSubscribe<List<Long>>() {
             @Override
-            public void onChanged(@Nullable Response<List<Picture>> listResponse) {
-                mPictures.addAll(listResponse.getData());
+            public void subscribe(ObservableEmitter<List<Long>> emitter) throws Exception {
+                emitter.onNext(mLocalPicRepository.addPicToDb(picture));
+                emitter.onComplete();
             }
-        });
+        })
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new io.reactivex.Observer<List<Long>>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+
+                    }
+
+                    @Override
+                    public void onNext(List<Long> o) {
+                        liveData.postValue(o);
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+
+                    }
+
+                    @Override
+                    public void onComplete() {
+
+                    }
+                });
         return liveData;
+    }
+
+    public MutableLiveData<Integer> disCollectPicture(final Picture picture) {
+        final MutableLiveData<Integer> liveData = new MutableLiveData<>();
+        Observable.create(new ObservableOnSubscribe<Integer>() {
+            @Override
+            public void subscribe(ObservableEmitter<Integer> emitter) throws Exception {
+                emitter.onNext(mLocalPicRepository.deletePicFromDbByIds(picture.getId()));
+                emitter.onComplete();
+            }
+        })
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new io.reactivex.Observer<Integer>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+
+                    }
+
+                    @Override
+                    public void onNext(Integer o) {
+                        liveData.postValue(o);
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+
+                    }
+
+                    @Override
+                    public void onComplete() {
+
+                    }
+                });
+        return liveData;
+    }
+
+    public LiveData<List<Picture>> getAllPicFromDb() {
+        return mLocalPicRepository.getAllPicFromDb();
+
     }
 }

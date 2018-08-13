@@ -19,7 +19,7 @@ import java.util.List;
 @Dao //将此接口定义为操作数据库最直接的接口
 public interface PictureDao {
     /**
-     * 将多个或单个图片对象插入数据库中，返回值是插入的条数。
+     * 将多个或单个图片对象插入数据库中，返回值是图片的rowId。
      * Insert (onConflict = OnConflictStrategy.REPLACE)//表明是插入操作，处理事务冲突的方式为REPLACE，
      * 有关sqlite的事务冲突的处理方式见 https://sqlite.org/lang_conflict.html
      *
