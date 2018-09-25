@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="title"
+            type="String" />
+
+        <variable
+            name="clickHandler"
+            type="com.ygsoft.utilslib.utils.OnClickHandler" />
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:onClick="@{()->clickHandler.onClick()}"
+        android:orientation="horizontal">
+
+        <TextView
+            style="@style/Text.color42.size16"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/common_margin_large"
+            android:layout_marginRight="@dimen/common_padding_xLarge"
+            android:text="@{title}" />
+
+        <TextView
+            style="@style/Text.color42.size16"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/common_margin_large"
+            android:layout_marginTop="@dimen/common_margin_large"
+            android:layout_weight="1" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/common_padding_xLarge"
+            android:layout_marginRight="@dimen/common_margin_large"
+            android:src="@mipmap/icon_arrow_right" />
+
+    </LinearLayout>
+</layout>

@@ -1,0 +1,296 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!--Appbar背景色，应用的主要色调，actionBar默认使用该颜色-->
+        <item name="colorPrimary">@color/color_app_bar</item>
+        <!--状态栏颜色-->
+        <item name="colorPrimaryDark">@color/color_db</item>
+        <!--一般控件的选种效果默认采用该颜色-->
+        <item name="colorAccent">@color/color_accent</item>
+        <item name="android:fitsSystemWindows">true</item>
+        <item name="android:windowDisablePreview">true</item>
+    </style>
+
+    <!--白底activity主题-->
+    <style name="ActThemeNormal" parent="AppTheme">
+        <item name="android:fitsSystemWindows">false</item>
+        <item name="android:windowDisablePreview">true</item>
+        <item name="android:windowBackground">@color/white</item>
+    </style>
+
+    <!--透明activity主题-->
+    <style name="ActThemeTransparent" parent="AppTheme">
+        <item name="android:fitsSystemWindows">false</item>
+        <item name="android:windowDisablePreview">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
+
+    <!--灰底activity主题-->
+    <style name="ActThemeDeep" parent="AppTheme" />
+
+    <style name="ActThemeHouse" parent="AppTheme">
+        <item name="colorPrimaryDark">@color/white</item>
+        <item name="android:windowBackground">@color/color_f5</item>
+    </style>
+
+    <style name="ActThemeNeighborhood" parent="AppTheme">
+        <item name="colorPrimaryDark">@color/white</item>
+        <item name="android:windowBackground">@color/color_f5</item>
+    </style>
+
+    <style name="SplashTheme" parent="AppTheme">
+        <item name="android:windowFullscreen">true</item>
+    </style>
+
+    <style name="Text">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:lineSpacingMultiplier">1</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:stateListAnimator">@null</item>
+    </style>
+
+    <!--底部栏灰色字-->
+    <style name="Text.color8f" parent="Text">
+        <item name="android:textColor">@color/color_font_8f</item>
+    </style>
+
+    <style name="Text.color8f.size12" parent="Text.color8f">
+        <item name="android:textSize">@dimen/font_size_12sp</item>
+    </style>
+
+    <style name="Text.color8f.size14" parent="Text.color8f">
+        <item name="android:textSize">@dimen/font_size_14sp</item>
+    </style>
+
+    <style name="Text.color8f.size16" parent="Text.color8f">
+        <item name="android:textSize">@dimen/font_size_16sp</item>
+    </style>
+
+    <style name="Text.color33" parent="Text">
+        <item name="android:textColor">@color/color_font_33</item>
+    </style>
+
+    <style name="Text.color33.size14" parent="Text.color33">
+        <item name="android:textSize">@dimen/font_size_14sp</item>
+    </style>
+
+    <style name="Text.color33.size16" parent="Text.color33">
+        <item name="android:textSize">@dimen/font_size_16sp</item>
+    </style>
+
+    <style name="Text.color33.size18" parent="Text.color33">
+        <item name="android:textSize">@dimen/font_size_18sp</item>
+    </style>
+
+    <style name="Text.color33.size20" parent="Text.color33">
+        <item name="android:textSize">@dimen/font_size_20sp</item>
+    </style>
+
+    <!--标题配色-->
+    <style name="Text.color42" parent="Text">
+        <item name="android:textColor">@color/color_font_42</item>
+    </style>
+
+    <style name="Text.color42.size16" parent="Text.color42">
+        <item name="android:textSize">@dimen/font_size_16sp</item>
+    </style>
+
+    <style name="Text.color42.size18" parent="Text.color42">
+        <item name="android:textSize">@dimen/font_size_18sp</item>
+    </style>
+
+    <style name="Text.color42.size28" parent="Text.color42">
+        <item name="android:textSize">@dimen/font_size_28sp</item>
+    </style>
+
+    <style name="Text.color42.size24" parent="Text.color42">
+        <item name="android:textSize">@dimen/font_size_24sp</item>
+    </style>
+
+    <!--提醒、备注色-->
+    <style name="Text.color75" parent="Text">
+        <item name="android:textColor">@color/color_font_75</item>
+    </style>
+
+    <style name="Text.color75.size12" parent="Text.color75">
+        <item name="android:textSize">@dimen/font_size_12sp</item>
+    </style>
+
+    <style name="Text.color75.size13" parent="Text.color75">
+        <item name="android:textSize">@dimen/font_size_13sp</item>
+    </style>
+
+    <style name="Text.color75.size14" parent="Text.color75">
+        <item name="android:textSize">@dimen/font_size_14sp</item>
+    </style>
+
+    <style name="Text.color75.size16" parent="Text.color75">
+        <item name="android:textSize">@dimen/font_size_16sp</item>
+    </style>
+
+    <style name="Text.color75.size18" parent="Text.color75">
+        <item name="android:textSize">@dimen/font_size_18sp</item>
+    </style>
+
+    <style name="Text.color75.size20" parent="Text.color75">
+        <item name="android:textSize">@dimen/font_size_20sp</item>
+    </style>
+
+    <!--时间、小号字体颜色-->
+    <style name="Text.colora8" parent="Text">
+        <item name="android:textColor">@color/color_font_a8</item>
+    </style>
+
+    <style name="Text.colora8.size10" parent="Text.colora8">
+        <item name="android:textSize">@dimen/font_size_10sp</item>
+    </style>
+
+    <style name="Text.colora8.size12" parent="Text.colora8">
+        <item name="android:textSize">@dimen/font_size_12sp</item>
+    </style>
+
+    <style name="Text.colora8.size14" parent="Text.colora8">
+        <item name="android:textSize">@dimen/font_size_14sp</item>
+    </style>
+
+    <style name="Text.colora8.size16" parent="Text.colora8">
+        <item name="android:textSize">@dimen/font_size_16sp</item>
+    </style>
+
+    <style name="Text.colora8.size18" parent="Text.colora8">
+        <item name="android:textSize">@dimen/font_size_18sp</item>
+    </style>
+
+    <!--提示、警示色-->
+    <style name="Text.colorde4" parent="Text">
+        <item name="android:textColor">@color/color_font_de4</item>
+    </style>
+
+    <style name="Text.colorde4.size12" parent="Text.colorde4">
+        <item name="android:textSize">@dimen/font_size_12sp</item>
+    </style>
+
+    <style name="Text.colorde4.size14" parent="Text.colorde4">
+        <item name="android:textSize">@dimen/font_size_14sp</item>
+    </style>
+
+    <style name="Text.colorde4.size16" parent="Text.colorde4">
+        <item name="android:textSize">@dimen/font_size_16sp</item>
+    </style>
+
+    <style name="Text.colorde4.size18" parent="Text.colorde4">
+        <item name="android:textSize">@dimen/font_size_18sp</item>
+    </style>
+
+    <!--主色-->
+    <style name="Text.colormain" parent="Text">
+        <item name="android:textColor">@color/color_font_main</item>
+    </style>
+
+    <style name="Text.colormain.size12" parent="Text.colormain">
+        <item name="android:textSize">@dimen/font_size_12sp</item>
+    </style>
+
+    <style name="Text.colormain.size14" parent="Text.colormain">
+        <item name="android:textSize">@dimen/font_size_14sp</item>
+    </style>
+
+    <style name="Text.colormain.size16" parent="Text.colormain">
+        <item name="android:textSize">@dimen/font_size_16sp</item>
+    </style>
+
+    <style name="Text.colormain.size18" parent="Text.colormain">
+        <item name="android:textSize">@dimen/font_size_18sp</item>
+    </style>
+
+    <style name="Text.colorfe" parent="Text">
+        <item name="android:textColor">@color/color_font_fe</item>
+    </style>
+
+    <style name="Text.colorfe.size14" parent="Text.colorfe">
+        <item name="android:textSize">@dimen/font_size_14sp</item>
+    </style>
+
+    <style name="Text.colorfe.size16" parent="Text.colorfe">
+        <item name="android:textSize">@dimen/font_size_16sp</item>
+    </style>
+
+    <style name="Text.colorfe.size18" parent="Text.colorfe">
+        <item name="android:textSize">@dimen/font_size_18sp</item>
+    </style>
+
+    <style name="Text.color5c" parent="Text">
+        <item name="android:textColor">@color/color_font_5c</item>
+    </style>
+
+    <style name="Text.color5c.size12" parent="Text.color5c">
+        <item name="android:textSize">@dimen/font_size_12sp</item>
+    </style>
+
+    <style name="Text.color42.size14" parent="Text.color42">
+        <item name="android:textSize">@dimen/font_size_14sp</item>
+    </style>
+
+    <style name="Text.color2b" parent="Text">
+        <item name="android:textColor">@color/color_font_2b</item>
+    </style>
+
+    <style name="Text.color2b.size14" parent="Text.color2b">
+        <item name="android:textSize">@dimen/font_size_14sp</item>
+    </style>
+
+    <style name="Text.colorf35" parent="Text">
+        <item name="android:textColor">@color/color_font_f35</item>
+    </style>
+
+    <style name="Text.colorf35.size18" parent="Text.colorf35">
+        <item name="android:textSize">@dimen/font_size_18sp</item>
+    </style>
+
+
+    <style name="Text.colorf35.size12" parent="Text.colorf35">
+        <item name="android:textSize">@dimen/font_size_12sp</item>
+    </style>
+
+    <style name="Text.colorwhite" parent="Text">
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="Text.colorwhite.size12" parent="Text.colorwhite">
+        <item name="android:textSize">@dimen/font_size_12sp</item>
+    </style>
+
+    <style name="Text.colorwhite.size14" parent="Text.colorwhite">
+        <item name="android:textSize">@dimen/font_size_14sp</item>
+    </style>
+
+    <style name="Text.colorwhite.size16" parent="Text.colorwhite">
+        <item name="android:textSize">@dimen/font_size_16sp</item>
+    </style>
+
+    <style name="Text.colorwhite.size18" parent="Text.colorwhite">
+        <item name="android:textSize">@dimen/font_size_18sp</item>
+    </style>
+
+    <style name="Text.colorf35.size14" parent="Text.colorf35">
+        <item name="android:textSize">@dimen/font_size_14sp</item>
+    </style>
+
+    <style name="Text.colorf35.size16" parent="Text.colorf35">
+        <item name="android:textSize">@dimen/font_size_16sp</item>
+    </style>
+
+    <style name="Text.color42.size12" parent="Text.color42">
+        <item name="android:textSize">@dimen/font_size_12sp</item>
+    </style>
+
+    <style name="Text.color2b.size16" parent="Text.color2b">
+        <item name="android:textSize">@dimen/font_size_16sp</item>
+    </style>
+
+
+
+</resources>

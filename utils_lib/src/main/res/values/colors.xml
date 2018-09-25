@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--颜色命名规则定义：
+    颜色命名使用下划线命名法
+    自定义颜色，color_使用的地方_自定义命名
+    分割线，color_divider_自定义命名
+    背景，color_background_自定义命名
+    字体颜色，color_font_自定义命名，由于字体颜色多为ababab类型，自定义命名可以用ab作为命名，方便使用时对照标注图的颜色
+    常用具体颜色用具体颜色的英文单词作为命名-->
+
+    <item name="type_header" type="integer" />
+    <item name="type_footer" type="integer" />
+    <item name="type_child" type="integer" />
+
+    <!--Appbar背景色，应用的主要色调，actionBar默认使用该颜色-->
+    <color name="color_app_bar">#ffffff</color>
+    <!--状态栏颜色-->
+    <color name="color_status_bar">#f2f2f2</color>
+    <!--控制各个控件被选中时的颜色-->
+    <color name="color_accent">#AE9575</color>
+    <!--应用主色-->
+    <color name="color_main">#AE9575</color>
+    <!--<color name="color_main">#998267</color>-->
+
+    <!--分割线默认颜色-->
+    <color name="color_divider">#CDCED3</color>
+
+
+    <!--默认字体颜色-->
+    <color name="color_font_33">#333333</color>
+    <color name="color_font_99">#999999</color>
+    <color name="color_font_de4">#de4046</color>
+    <color name="color_font_a8">#a8a8a8</color>
+    <color name="color_font_8f">#8f8f8f</color>
+    <color name="color_font_75">#757575</color>
+    <color name="color_font_42">#424242</color>
+    <color name="color_font_main">#998267</color>
+    <color name="color_font_fe">#fefefe</color>
+    <color name="color_font_5c">#5c5c5c</color>
+    <color name="color_font_2b">#2b2b2b</color>
+    <color name="color_font_f35">#f35555</color>
+    <color name="color_e9">#E95D5D</color>
+
+    <!--常用颜色-->
+    <color name="white">#ffffff</color>
+    <color name="black">#000000</color>
+    <color name="color_db">#dbdbdb</color>
+    <color name="color_f5">#f5f5f5</color>
+    <color name="color_75">#757575</color>
+    <color name="color_c2">#c2c2c2</color>
+    <color name="color_fd9">#FD9B43</color>
+    <color name="color_48c">#48C6A1</color>
+    <color name="color_f35">#f35555</color>
+    <color name="color_orange">#ED962E</color>
+    <color name="color_ae9575">#AE9575</color>
+
+    <color name="color_repair_log_status_01">#ED962E</color>
+    <color name="color_repair_log_status_2">#4475DA</color>
+    <color name="color_repair_log_status_3">#f35555</color>
+    <color name="color_repair_log_status_4">#ED962E</color>
+    <color name="color_repair_log_status_5">#757575</color>
+    <color name="color_repair_log_status_10">#757575</color>
+
+    <color name="color_feedback_log_status_0">#ED962E</color>
+    <color name="color_feedback_log_status_1">#757575</color>
+
+    <color name="color_phone">#4475DA</color>
+    <color name="color_placeholder_background">#eeeeee</color>
+    <color name="color_index_money_un_pay">#E95D5D</color>
+</resources>
