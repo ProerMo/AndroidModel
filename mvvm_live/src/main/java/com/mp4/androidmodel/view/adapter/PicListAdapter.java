@@ -30,7 +30,8 @@ public class PicListAdapter extends RecyclerView.Adapter<PicListAdapter.PicViewH
     private Activity activity;
 
 
-    public PicListAdapter(@Nullable List<Picture> mPictureList, Activity activity) {
+    public
+    PicListAdapter(@Nullable List<Picture> mPictureList, Activity activity) {
         this.activity = activity;
         if (mPictureList != null) {
             this.mPictureList = mPictureList;

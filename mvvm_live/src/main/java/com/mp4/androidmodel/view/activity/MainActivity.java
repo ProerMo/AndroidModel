@@ -113,6 +113,9 @@ public class MainActivity extends AppCompatActivity implements PicListAdapter.On
             case R.id.my_collect:
                 startActivity(new Intent(this, MyCollectActivity.class));
                 return true;
+            case R.id.setting:
+                startActivity(new Intent(this, SettingActivity.class));
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }

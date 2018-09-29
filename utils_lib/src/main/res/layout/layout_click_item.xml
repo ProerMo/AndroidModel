@@ -10,11 +10,16 @@
         <variable
             name="clickHandler"
             type="com.ygsoft.utilslib.utils.OnClickHandler" />
+
+        <variable
+            name="content"
+            type="String" />
     </data>
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/selector_click_background"
         android:gravity="center_vertical"
         android:onClick="@{()->clickHandler.onClick()}"
         android:orientation="horizontal">
@@ -24,16 +29,24 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/common_margin_large"
-            android:layout_marginRight="@dimen/common_padding_xLarge"
+            android:layout_marginRight="@dimen/common_margin_large"
             android:text="@{title}" />
 
-        <TextView
-            style="@style/Text.color42.size16"
+        <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/common_margin_large"
-            android:layout_marginTop="@dimen/common_margin_large"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:gravity="right">
+
+
+            <TextView
+                style="@style/Text.color42.size16"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/common_margin_large"
+                android:layout_marginTop="@dimen/common_margin_large"
+                android:text="@{content}" />
+        </LinearLayout>
 
         <ImageView
             android:layout_width="wrap_content"
